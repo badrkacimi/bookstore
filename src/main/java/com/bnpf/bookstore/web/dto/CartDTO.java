@@ -1,4 +1,4 @@
-package com.bnpf.bookstore.IT.dto;
+package com.bnpf.bookstore.web.dto;
 
 import java.util.List;
 

@@ -1,11 +1,11 @@
 package com.bnpf.bookstore.service;
 
-import com.bnpf.bookstore.IT.dto.OrderDTO;
-import com.bnpf.bookstore.IT.dto.OrderItemDTO;
-import com.bnpf.bookstore.IT.mapper.OrderMapper;
 import com.bnpf.bookstore.domain.entities.*;
 import com.bnpf.bookstore.domain.repositories.CartRepository;
 import com.bnpf.bookstore.domain.repositories.OrderRepository;
+import com.bnpf.bookstore.web.dto.OrderDTO;
+import com.bnpf.bookstore.web.dto.OrderItemDTO;
+import com.bnpf.bookstore.web.mapper.OrderMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentMatchers;

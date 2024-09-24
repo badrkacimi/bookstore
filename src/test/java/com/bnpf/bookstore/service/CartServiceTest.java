@@ -1,13 +1,13 @@
 package com.bnpf.bookstore.service;
 
-import com.bnpf.bookstore.IT.dto.CartDTO;
-import com.bnpf.bookstore.IT.mapper.CartMapper;
 import com.bnpf.bookstore.domain.entities.Book;
 import com.bnpf.bookstore.domain.entities.Cart;
 import com.bnpf.bookstore.domain.entities.CartItem;
 import com.bnpf.bookstore.domain.entities.User;
 import com.bnpf.bookstore.domain.repositories.BookRepository;
 import com.bnpf.bookstore.domain.repositories.CartRepository;
+import com.bnpf.bookstore.web.dto.CartDTO;
+import com.bnpf.bookstore.web.mapper.CartMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

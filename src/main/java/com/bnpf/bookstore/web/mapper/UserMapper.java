@@ -1,7 +1,7 @@
-package com.bnpf.bookstore.IT.mapper;
+package com.bnpf.bookstore.web.mapper;
 
-import com.bnpf.bookstore.IT.dto.UserDTO;
 import com.bnpf.bookstore.domain.entities.User;
+import com.bnpf.bookstore.web.dto.UserDTO;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

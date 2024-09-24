@@ -1,9 +1,9 @@
 package com.bnpf.bookstore.service;
 
-import com.bnpf.bookstore.IT.dto.BookDTO;
-import com.bnpf.bookstore.IT.mapper.BookMapper;
 import com.bnpf.bookstore.domain.entities.Book;
 import com.bnpf.bookstore.domain.repositories.BookRepository;
+import com.bnpf.bookstore.web.dto.BookDTO;
+import com.bnpf.bookstore.web.mapper.BookMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

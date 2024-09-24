@@ -1,7 +1,7 @@
-package com.bnpf.bookstore.IT;
+package com.bnpf.bookstore.web.api;
 
-import com.bnpf.bookstore.IT.dto.CartDTO;
 import com.bnpf.bookstore.service.CartService;
+import com.bnpf.bookstore.web.dto.CartDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,6 @@
 package com.bnpf.bookstore.IT;
 
-import com.bnpf.bookstore.IT.dto.UserDTO;
+import com.bnpf.bookstore.web.dto.UserDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,6 @@ class AuthControllerTest {
     public void testRegisterUser() throws Exception {
         UserDTO userDTO = new UserDTO("badr@example.com", "password123");
 
-        // Perform a POST request to /register
         mockMvc.perform(MockMvcRequestBuilders.post("/auth/register")
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(userDTO)))

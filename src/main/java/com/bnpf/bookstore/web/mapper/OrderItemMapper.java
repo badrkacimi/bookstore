@@ -1,7 +1,7 @@
-package com.bnpf.bookstore.IT.mapper;
+package com.bnpf.bookstore.web.mapper;
 
-import com.bnpf.bookstore.IT.dto.OrderItemDTO;
 import com.bnpf.bookstore.domain.entities.OrderItem;
+import com.bnpf.bookstore.web.dto.OrderItemDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

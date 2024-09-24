@@ -1,11 +1,11 @@
 package com.bnpf.bookstore.service;
 
-import com.bnpf.bookstore.IT.dto.UserDTO;
-import com.bnpf.bookstore.IT.mapper.UserMapper;
 import com.bnpf.bookstore.config.ValidationHelper;
 import com.bnpf.bookstore.domain.entities.User;
 import com.bnpf.bookstore.domain.repositories.UserRepository;
+import com.bnpf.bookstore.web.dto.UserDTO;
 import com.bnpf.bookstore.web.exceptions.InvalidRequestException;
+import com.bnpf.bookstore.web.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;

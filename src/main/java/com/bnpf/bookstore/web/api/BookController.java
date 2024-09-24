@@ -1,7 +1,7 @@
-package com.bnpf.bookstore.IT;
+package com.bnpf.bookstore.web.api;
 
-import com.bnpf.bookstore.IT.dto.BookDTO;
 import com.bnpf.bookstore.service.BookService;
+import com.bnpf.bookstore.web.dto.BookDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

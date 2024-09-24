@@ -1,13 +1,13 @@
 package com.bnpf.bookstore.service;
 
-import com.bnpf.bookstore.IT.dto.OrderDTO;
-import com.bnpf.bookstore.IT.mapper.OrderMapper;
 import com.bnpf.bookstore.domain.entities.Cart;
 import com.bnpf.bookstore.domain.entities.Order;
 import com.bnpf.bookstore.domain.entities.OrderItem;
 import com.bnpf.bookstore.domain.repositories.CartRepository;
 import com.bnpf.bookstore.domain.repositories.OrderRepository;
+import com.bnpf.bookstore.web.dto.OrderDTO;
 import com.bnpf.bookstore.web.exceptions.ResourceNotFoundException;
+import com.bnpf.bookstore.web.mapper.OrderMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

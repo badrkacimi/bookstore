@@ -1,7 +1,5 @@
 package com.bnpf.bookstore.service;
 
-import com.bnpf.bookstore.IT.dto.CartDTO;
-import com.bnpf.bookstore.IT.mapper.CartMapper;
 import com.bnpf.bookstore.domain.entities.Book;
 import com.bnpf.bookstore.domain.entities.Cart;
 import com.bnpf.bookstore.domain.entities.CartItem;
@@ -9,8 +7,10 @@ import com.bnpf.bookstore.domain.entities.User;
 import com.bnpf.bookstore.domain.repositories.BookRepository;
 import com.bnpf.bookstore.domain.repositories.CartRepository;
 import com.bnpf.bookstore.domain.repositories.UserRepository;
+import com.bnpf.bookstore.web.dto.CartDTO;
 import com.bnpf.bookstore.web.exceptions.InvalidRequestException;
 import com.bnpf.bookstore.web.exceptions.ResourceNotFoundException;
+import com.bnpf.bookstore.web.mapper.CartMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
