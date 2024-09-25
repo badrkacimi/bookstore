@@ -18,8 +18,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -53,6 +52,6 @@ class OrderControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/orders/{userId}/place", user.getId()))
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType("application/json"))
-                .andExpect(content().json("{\"email\":\"badr@example.com\"}"));
+                .andExpect(jsonPath("$.email").value("badr@example.com"));
     }
 }
