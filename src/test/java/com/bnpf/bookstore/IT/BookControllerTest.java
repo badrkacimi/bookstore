@@ -23,15 +23,15 @@ public class BookControllerTest {
 
     @Test
     @WithMockUser(username = "badr@example.com", password = "password123")
-    public void testGetAllBooks() throws Exception {
+    public void test_getAll_books_successfully() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/books"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"));
     }
 
     @Test
-    @WithMockUser(username = "test@example.com", password = "password123")
-    public void testGetBookByTitle() throws Exception {
+    @WithMockUser(username = "badr@example.com", password = "password123")
+    public void test_getBook_byTitle_successfully() throws Exception {
         String title = "Effective Java";
 
         mockMvc.perform(MockMvcRequestBuilders.get("/books/{title}", title))

@@ -1,251 +1,251 @@
 {
-	"info": {
-		"_postman_id": "5b37d3b4-95d6-4188-8135-c4b6e6d24703",
-		"name": "bookstore",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "6902873"
-	},
-	"item": [
-		{
-			"name": "register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"email\": \"badr@gmail.com\",\n    \"password\": \"badr1994\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/auth/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"auth",
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get books",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "badr@gmail.com",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "badr1994",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/books",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"books"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get books by name",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "badr@gmail.com",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "badr1994",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/books/clean",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"books",
-						"clean"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "remove from cart",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "badr@gmail.com",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "badr1994",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/cart/1/remove?bookId=3",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"cart",
-						"1",
-						"remove"
-					],
-					"query": [
-						{
-							"key": "bookId",
-							"value": "3"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "add items to the Cart",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "badr@gmail.com",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "badr1994",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/cart/1/add?bookId=1&quantity=10",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"cart",
-						"1",
-						"add"
-					],
-					"query": [
-						{
-							"key": "bookId",
-							"value": "1"
-						},
-						{
-							"key": "quantity",
-							"value": "10"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update the Cart",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "badr@gmail.com",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "badr1994",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/cart/1/update?bookId=1&quantity=5",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"cart",
-						"1",
-						"update"
-					],
-					"query": [
-						{
-							"key": "bookId",
-							"value": "1"
-						},
-						{
-							"key": "quantity",
-							"value": "5"
-						}
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "5b37d3b4-95d6-4188-8135-c4b6e6d24703",
+    "name": "bookstore",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "6902873"
+  },
+  "item": [
+    {
+      "name": "register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"badr@gmail.com\",\n    \"password\": \"badr1994\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get books",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "badr@gmail.com",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "badr1994",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/books",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "books"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get books by name",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "badr@gmail.com",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "badr1994",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/books/clean",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "books",
+            "clean"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "remove from cart",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "badr@gmail.com",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "badr1994",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/cart/1/remove?bookId=3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "cart",
+            "1",
+            "remove"
+          ],
+          "query": [
+            {
+              "key": "bookId",
+              "value": "3"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "add items to the Cart",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "badr@gmail.com",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "badr1994",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/cart/1/add?bookId=1&quantity=10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "cart",
+            "1",
+            "add"
+          ],
+          "query": [
+            {
+              "key": "bookId",
+              "value": "1"
+            },
+            {
+              "key": "quantity",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update the Cart",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "badr@gmail.com",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "badr1994",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/cart/1/update?bookId=1&quantity=5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "cart",
+            "1",
+            "update"
+          ],
+          "query": [
+            {
+              "key": "bookId",
+              "value": "1"
+            },
+            {
+              "key": "quantity",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
 }

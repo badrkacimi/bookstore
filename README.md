@@ -31,6 +31,7 @@ User registration: email & password
 ```
 /auth/register
 ```
+
 # Postman api collection :
 
 You can import all the apis in Postman:

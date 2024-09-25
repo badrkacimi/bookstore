@@ -21,7 +21,7 @@ class AuthControllerTest {
     private ObjectMapper objectMapper;
 
     @Test
-    public void testRegisterUser() throws Exception {
+    public void test_registerUser_successfully() throws Exception {
         UserDTO userDTO = new UserDTO("badr@example.com", "password123");
 
         mockMvc.perform(MockMvcRequestBuilders.post("/auth/register")
