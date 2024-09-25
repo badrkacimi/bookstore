@@ -9,14 +9,6 @@
 * H2 as in-memory database.
 * Basic authentication using Spring Security's form login.
 
-# Business requirement :
-
-User registration:
-
-```
-/auth/register
-```
-
 # Build project
 
 To build the project, run the maven command
@@ -32,6 +24,21 @@ docker build -t bookstore:latest .
 docker run -p 8080:8080 bookstore:latest 
 ```
 
+# Business requirement :
+
+User registration: email & password
+
+```
+/auth/register
+```
+# Postman api collection :
+
+You can import all the apis in Postman:
+
+```
+bookstore.postman_collection.json
+```
+
 # Visualize & interact with the API's endpoints :
 
-URL : http://localhost:8080/swagger-ui/index.html
+URL: http://localhost:8080/swagger-ui/index.html
