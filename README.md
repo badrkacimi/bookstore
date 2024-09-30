@@ -1,6 +1,6 @@
-# BADR KACIMI - Blue Harvest - KATA
+# BADR KACIMI
 
-# Technical stack :
+# Technical stack (09-2024) :
 
 * Java 21 Spring boot 3.3.4.RELEASE.
 * Docker for containerize the application.
@@ -8,6 +8,7 @@
 * Lombok to minimize the boilerplate code
 * H2 as in-memory database.
 * Basic authentication using Spring Security's form login.
+* JWT authentication will be added soon.
 
 # Build project
 
