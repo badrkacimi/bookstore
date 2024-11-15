@@ -26,11 +26,14 @@ public class OrderService {
     public OrderDTO placeOrder(Long userId) {
         log.info("placing order...");
 
-        Cart cart = cartRepository.findByUserId(userId);
-        if (cart == null || cart.getItems().isEmpty()) {
-            throw new ResourceNotFoundException("Cart is empty or not found for user id " + userId);
-        }
+        Cart cart = checkCartAvailability(userId);
+        Order order = processOrder(cart);
 
+        log.info("order of user {} placed", userId);
+        return orderMapper.toDto(order);
+    }
+
+    private Order processOrder(Cart cart) {
         Order order = new Order();
         order.setUser(cart.getUser());
         order.setOrderAt(LocalDateTime.now());
@@ -52,8 +55,14 @@ public class OrderService {
         // Clear the cart
         cart.getItems().clear();
         cartRepository.save(cart);
+        return order;
+    }
 
-        log.info("order of user {} placed", userId);
-        return orderMapper.toDto(order);
+    private Cart checkCartAvailability(Long userId) {
+        Cart cart = cartRepository.findByUserId(userId);
+        if (cart == null || cart.getItems().isEmpty()) {
+            throw new ResourceNotFoundException("Cart is empty or not found for user id " + userId);
+        }
+        return cart;
     }
 }

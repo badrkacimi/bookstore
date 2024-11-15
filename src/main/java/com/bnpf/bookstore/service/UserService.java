@@ -21,6 +21,15 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     public UserDTO registerUser(UserDTO userDTO) {
+        validateUser(userDTO);
+        User user = userMapper.toEntity(userDTO);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+        log.info("user {} registered !", user.getEmail());
+        return userMapper.toDto(user);
+    }
+
+    private void validateUser(UserDTO userDTO) {
         if (!ValidationHelper.isValidEmail(userDTO.email())) {
             throw new InvalidRequestException("Email or password is invalid");
         }
@@ -32,11 +41,6 @@ public class UserService {
         if (existingUser != null) {
             throw new InvalidRequestException("Username is already taken");
         }
-        User user = userMapper.toEntity(userDTO);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
-        log.info("user {} registered !", user.getEmail());
-        return userMapper.toDto(user);
     }
 
 }

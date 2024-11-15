@@ -28,32 +28,14 @@ public class CartService {
     private final UserRepository userRepository;
     private final CartMapper cartMapper;
 
-    public CartDTO getCartByUserId(Long userId) {
-        Cart cart = cartRepository.findByUserId(userId);
-        if (cart == null) {
-            throw new ResourceNotFoundException("Cart not found for user id " + userId);
-        }
-        return cartMapper.toDto(cart);
-    }
-
     @Transactional
     public CartDTO addItemToCart(Long userId, Long bookId, int quantity) {
         log.info("adding Items to Cart...");
 
-        Cart cart = cartRepository.findByUserId(userId);
-        if (cart == null) {
-            User user = userRepository.findById(userId)
-                    .orElseThrow(() -> new ResourceNotFoundException("User not found with id " + userId));
-            cart = new Cart();
-            cart.setUser(user);
-            cartRepository.save(cart);
-        }
-
-        Book book = bookRepository.findById(bookId)
-                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id " + bookId));
+        Book book = checkBookAvailability(bookId);
+        Cart cart = getCart(userId, true);
 
         List<CartItem> items = cart.getItems();
-
         Optional<CartItem> existingCartItem = items.stream()
                 .filter(item -> item.getBook().getId().equals(bookId))
                 .findFirst();
@@ -81,21 +63,10 @@ public class CartService {
         if (quantity < 0) {
             throw new InvalidRequestException("Quantity cannot be negative.");
         }
-        Cart cart = cartRepository.findByUserId(userId);
-        if (cart == null) {
-            throw new ResourceNotFoundException("Cart not found for user id " + userId);
-        }
 
-        CartItem cartItem = cart.getItems().stream()
-                .filter(item -> item.getBook().getId().equals(bookId))
-                .findFirst()
-                .orElseThrow(() -> new ResourceNotFoundException("Cart item not found for book id " + bookId));
-
-        if (quantity > 0) {
-            cartItem.setQuantity(quantity);
-        } else {
-            cart.getItems().remove(cartItem);
-        }
+        Cart cart = getCart(userId, false);
+        CartItem cartItem = getCartItem(bookId, cart);
+        updatedCartQuantity(quantity, cartItem, cart);
 
         cartRepository.save(cart);
         return cartMapper.toDto(cart);
@@ -110,15 +81,54 @@ public class CartService {
             throw new ResourceNotFoundException("Cart not found for user id " + userId);
         }
 
-        CartItem cartItem = cart.getItems().stream()
-                .filter(item -> item.getBook().getId().equals(bookId))
-                .findFirst()
-                .orElseThrow(() -> new ResourceNotFoundException("Cart item not found for book id " + bookId));
-
+        CartItem cartItem = getCartItem(bookId, cart);
         cart.getItems().remove(cartItem);
+
         cartRepository.save(cart);
         log.info("Item {} removed from Cart", bookId);
 
+    }
+
+    public Book checkBookAvailability(Long bookId) {
+        return bookRepository.findById(bookId)
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id " + bookId));
+    }
+
+    private CartItem getCartItem(Long bookId, Cart cart) {
+        return cart.getItems().stream()
+                .filter(item -> item.getBook().getId().equals(bookId))
+                .findFirst()
+                .orElseThrow(() -> new ResourceNotFoundException("Cart item not found for book id " + bookId));
+    }
+
+    public CartDTO getCartByUserId(Long userId) {
+        Cart cart = cartRepository.findByUserId(userId);
+        if (cart == null) {
+            throw new ResourceNotFoundException("Cart not found for user id " + userId);
+        }
+        return cartMapper.toDto(cart);
+    }
+
+    private void updatedCartQuantity(int quantity, CartItem cartItem, Cart cart) {
+        if (quantity > 0) {
+            cartItem.setQuantity(quantity);
+        } else {
+            cart.getItems().remove(cartItem);
+        }
+    }
+
+    private Cart getCart(Long userId, boolean createCart) {
+        Cart cart = cartRepository.findByUserId(userId);
+        if (cart == null) {
+            User user = userRepository.findById(userId)
+                    .orElseThrow(() -> new ResourceNotFoundException("User not found with id " + userId));
+            if (createCart) {
+                cart = new Cart();
+                cart.setUser(user);
+                cartRepository.save(cart);
+            }
+        }
+        return cart;
     }
 }
 
